@@ -4,11 +4,11 @@ import java.util.Set;
 import java.util.function.Function;
 
 public interface GroupedMapInterface<K, V> {
-    V add(K key, V value);
+    boolean add(K key, V value);
 
-    V add(V value);
+    boolean add(V value);
 
-    V add(V value, Function<V, K> customMapper);
+    boolean add(V value, Function<V, K> customMapper);
 
     V get(K key);
 
