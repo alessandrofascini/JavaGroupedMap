@@ -1,6 +1,5 @@
 package it.java.tools;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Function;
 
@@ -10,7 +9,7 @@ public class GroupedArrayListMap<K, V> {
     private Map<K, List<V>> map = new HashMap<>();
 
     public GroupedArrayListMap(Function<V, K> keyMapper) {
-            this.defaultKeyMapper = keyMapper;
+        this.defaultKeyMapper = keyMapper;
     }
 
     public boolean add(K key, V value) {
