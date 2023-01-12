@@ -5,16 +5,14 @@ import java.util.function.Function;
 
 public class GroupedMap<K, V> {
     private final Function<V, K> defaultKeyMapper;
-    private final Map<K, V> data = new HashMap<>();
+    private final Map<K, V> kvMap = new HashMap<>();
     public GroupedMap(Function<V, K> keyMapper) {
         this.defaultKeyMapper = keyMapper;
     }
 
     public V add(K key, V value) {
-        this.data.putIfAbsent(key, new ArrayList<>());
-        Collection<V> values = this.data.get(key);
-        values.add(value);
-        return values;
+        this.kvMap.put(key, value);
+        return this.kvMap.get(value);
     }
 
     public V add(V value) {
@@ -31,14 +29,14 @@ public class GroupedMap<K, V> {
     }
 
     public V get(K key) {
-        return this.data.get(key);
+        return this.kvMap.get(key);
     }
 
     public boolean containsKey(K key) {
-        return this.data.containsKey(key);
+        return this.kvMap.containsKey(key);
     }
 
     public Set<K> keySet() {
-        return this.data.keySet();
+        return this.kvMap.keySet();
     }
 }
