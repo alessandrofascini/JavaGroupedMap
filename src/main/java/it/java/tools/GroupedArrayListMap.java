@@ -41,4 +41,8 @@ public class GroupedArrayListMap<K, V> {
     public Set<K> keySet() {
         return this.map.keySet();
     }
+
+    public K getKeyByMapper(V value) {
+        return this.defaultKeyMapper.apply(value);
+    }
 }
