@@ -15,4 +15,6 @@ public interface GroupedMapInterface<K, V> {
     boolean containsKey(K key);
 
     Set<K> keySet();
+
+    K getKeyByMapper(V value);
 }

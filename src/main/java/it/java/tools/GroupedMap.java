@@ -18,7 +18,7 @@ public class GroupedMap<K, V> implements GroupedMapInterface<K, V> {
 
     @Override
     public boolean add(V value) {
-        K key = this.defaultKeyMapper.apply(value);
+        K key = this.getKeyByMapper(value);
         return this.add(key, value);
     }
 
@@ -44,5 +44,10 @@ public class GroupedMap<K, V> implements GroupedMapInterface<K, V> {
     @Override
     public Set<K> keySet() {
         return this.kvMap.keySet();
+    }
+
+    @Override
+    public K getKeyByMapper(V value) {
+        return this.defaultKeyMapper.apply(value);
     }
 }
