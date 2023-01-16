@@ -44,4 +44,8 @@ public class GroupedArrayListMap<K, V> {
     public K getKeyByMapper(V value) {
         return this.defaultKeyMapper.apply(value);
     }
+
+    public Map<K, Collection<V>> getContent() {
+        return Map.copyOf(this.map);
+    }
 }

@@ -1,5 +1,6 @@
 package it.java.tools;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -17,4 +18,6 @@ public interface GroupedMapInterface<K, V> {
     Set<K> keySet();
 
     K getKeyByMapper(V value);
+
+    Map<K, V> getContent();
 }

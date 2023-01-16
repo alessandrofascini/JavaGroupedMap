@@ -50,4 +50,9 @@ public class GroupedMap<K, V> implements GroupedMapInterface<K, V> {
     public K getKeyByMapper(V value) {
         return this.defaultKeyMapper.apply(value);
     }
+
+    @Override
+    public Map<K, V> getContent() {
+        return Map.copyOf(this.kvMap);
+    }
 }
